@@ -33,10 +33,10 @@ require 'ImaApiV1/model/solicitacao_response'
 
 # APIs
 require 'ImaApiV1/api/educao_api'
-require 'ImaApiV1/api/atendimentos_api'
 require 'ImaApiV1/api/sade_api'
 require 'ImaApiV1/api/transparencia_api'
 require 'ImaApiV1/api/protocolo_api'
+require 'ImaApiV1/api/atendimento_api'
 
 module ImaApiV1
   # Initialize the default configuration

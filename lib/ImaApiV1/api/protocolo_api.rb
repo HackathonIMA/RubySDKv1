@@ -10,7 +10,6 @@ module ImaApiV1
 	
 	    # Dados sobre protocolo
 	    # O recurso de protocolo existe para fornecer informaÃ§Ãµes sobre protocolos gerados pela prefeitura.\n
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
@@ -19,11 +18,10 @@ module ImaApiV1
 	    # @option opts [int] :codigo_bairro Filtra resultados por cÃ³digo do bairro.
 	    # @option opts [string] :sigla_expediente Filtra resultados pelo cÃ³digo da secretaria expediente.
 	    # @option opts [int] :ano_processo Filtra resultados pelo ano em que foram lanÃ§ados.
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [array[ProtocoloResponse]]
-	    def self.protocolo_get(access_token, client_id, offset, limit, opts = {})
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling protocolo_get" if access_token.nil?
+	    def self.protocolo_get(client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling protocolo_get" if client_id.nil?
@@ -46,6 +44,8 @@ module ImaApiV1
 	      query_params[:'codigoBairro'] = opts[:'codigo_bairro'] if opts[:'codigo_bairro']
 	      query_params[:'siglaExpediente'] = opts[:'sigla_expediente'] if opts[:'sigla_expediente']
 	      query_params[:'anoProcesso'] = opts[:'ano_processo'] if opts[:'ano_processo']
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -57,7 +57,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -80,15 +79,13 @@ module ImaApiV1
 	
 	    # Dados sobre um protocolo especifico.
 	    # 
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param id Identificador do protocolo.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [ProtocoloResponse]
-	    def self.protocolo_id_get(access_token, client_id, id, opts = {})
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling protocolo_id_get" if access_token.nil?
+	    def self.protocolo_id_get(client_id, id, opts = {})
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling protocolo_id_get" if client_id.nil?
@@ -102,6 +99,8 @@ module ImaApiV1
 	
 	      # query parameters
 	      query_params = {}
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -113,7 +112,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters

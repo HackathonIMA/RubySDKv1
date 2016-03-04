@@ -10,16 +10,14 @@ module ImaApiV1
 	
 	    # Consulta das aÃ§Ãµes da preifeitura.
 	    # 
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [array[AcoesResponse]]
-	    def self.queryfiltro_acao(access_token, client_id, offset, limit, opts = {})
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling queryfiltro_acao" if access_token.nil?
+	    def self.queryfiltro_acao(client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling queryfiltro_acao" if client_id.nil?
@@ -38,6 +36,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -49,7 +49,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -73,19 +72,17 @@ module ImaApiV1
 	    # Consulta da aÃ§Ã£o da preifeitura.
 	    # 
 	    # @param id Identificador do registro.
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [AcoesResponse]
-	    def self.queryfiltro_acao2(id, access_token, client_id, offset, limit, opts = {})
+	    def self.queryfiltro_acao2(id, client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'id' is set
 	      raise "Missing the required parameter 'id' when calling queryfiltro_acao2" if id.nil?
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling queryfiltro_acao2" if access_token.nil?
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling queryfiltro_acao2" if client_id.nil?
@@ -104,6 +101,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -115,7 +114,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -138,16 +136,14 @@ module ImaApiV1
 	
 	    # Consulta de credores.
 	    # 
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [array[CredorResponse]]
-	    def self.ptr_lkp_credor(access_token, client_id, offset, limit, opts = {})
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_credor" if access_token.nil?
+	    def self.ptr_lkp_credor(client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_credor" if client_id.nil?
@@ -166,6 +162,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -177,7 +175,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -201,19 +198,17 @@ module ImaApiV1
 	    # Consulta de credor.
 	    # 
 	    # @param id Identificador do registro.
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [CredorResponse]
-	    def self.ptr_lkp_credor2(id, access_token, client_id, offset, limit, opts = {})
+	    def self.ptr_lkp_credor2(id, client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'id' is set
 	      raise "Missing the required parameter 'id' when calling ptr_lkp_credor2" if id.nil?
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_credor2" if access_token.nil?
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_credor2" if client_id.nil?
@@ -232,6 +227,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -243,7 +240,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -266,11 +262,12 @@ module ImaApiV1
 	
 	    # Consulta de despesas da prefeitura.
 	    # 
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @option opts [string] :ano_exercicio Ano de exercÃ­cio
 	    # @option opts [string] :acao AÃ§Ã£o, lista disponÃ­vel em GET /transparencia/acoes
 	    # @option opts [string] :mes MÃªs desejado
@@ -283,10 +280,7 @@ module ImaApiV1
 	    # @option opts [string] :natureza_despesa Natureza da despesa, lista disponÃ­vel em GET /transparencia/subItensContas
 	    # @option opts [string] :expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula
 	    # @return [array[despesasResponse]]
-	    def self.ptr_ft_despesa(access_token, client_id, offset, limit, opts = {})
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_ft_despesa" if access_token.nil?
+	    def self.ptr_ft_despesa(client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_ft_despesa" if client_id.nil?
@@ -305,6 +299,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	      query_params[:'anoExercicio'] = opts[:'ano_exercicio'] if opts[:'ano_exercicio']
 	      query_params[:'acao'] = opts[:'acao'] if opts[:'acao']
 	      query_params[:'mes'] = opts[:'mes'] if opts[:'mes']
@@ -327,7 +323,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -351,18 +346,16 @@ module ImaApiV1
 	    # Consulta de uma despesa da prefeitura.
 	    # 
 	    # @param id Identificador do registro.
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param [Hash] opts the optional parameters
 	    # @option opts [string] :expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [despesasResponse]
-	    def self.ptr_ft_despesa2(id, access_token, client_id, opts = {})
+	    def self.ptr_ft_despesa2(id, client_id, opts = {})
 	      
 	      # verify the required parameter 'id' is set
 	      raise "Missing the required parameter 'id' when calling ptr_ft_despesa2" if id.nil?
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_ft_despesa2" if access_token.nil?
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_ft_despesa2" if client_id.nil?
@@ -374,6 +367,8 @@ module ImaApiV1
 	      # query parameters
 	      query_params = {}
 	      query_params[:'expand'] = opts[:'expand'] if opts[:'expand']
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -385,7 +380,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -408,16 +402,14 @@ module ImaApiV1
 	
 	    # Consulta das despesas dos elementos da preifeitura.
 	    # 
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [array[ElementoDespesaResponse]]
-	    def self.ptr_lkp_elemento_despesa(access_token, client_id, offset, limit, opts = {})
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_elemento_despesa" if access_token.nil?
+	    def self.ptr_lkp_elemento_despesa(client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_elemento_despesa" if client_id.nil?
@@ -436,6 +428,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -447,7 +441,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -471,19 +464,17 @@ module ImaApiV1
 	    # Consulta da despesa do elemento da preifeitura.
 	    # 
 	    # @param id Identificador do registro.
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [ElementoDespesaResponse]
-	    def self.ptr_lkp_elemento_despesa2(id, access_token, client_id, offset, limit, opts = {})
+	    def self.ptr_lkp_elemento_despesa2(id, client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'id' is set
 	      raise "Missing the required parameter 'id' when calling ptr_lkp_elemento_despesa2" if id.nil?
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_elemento_despesa2" if access_token.nil?
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_elemento_despesa2" if client_id.nil?
@@ -502,6 +493,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -513,7 +506,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -536,16 +528,14 @@ module ImaApiV1
 	
 	    # Consulta das despesas dos elementos da preifeitura.
 	    # 
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [array[EmpenhoResponse]]
-	    def self.ptr_lkp_ne(access_token, client_id, offset, limit, opts = {})
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_ne" if access_token.nil?
+	    def self.ptr_lkp_ne(client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_ne" if client_id.nil?
@@ -564,6 +554,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -575,7 +567,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -599,19 +590,17 @@ module ImaApiV1
 	    # Consulta da despesa do elemento da preifeitura.
 	    # 
 	    # @param id Identificador do registro.
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [EmpenhoResponse]
-	    def self.ptr_lkp_ne2(id, access_token, client_id, offset, limit, opts = {})
+	    def self.ptr_lkp_ne2(id, client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'id' is set
 	      raise "Missing the required parameter 'id' when calling ptr_lkp_ne2" if id.nil?
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_ne2" if access_token.nil?
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_ne2" if client_id.nil?
@@ -630,6 +619,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -641,7 +632,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -664,17 +654,15 @@ module ImaApiV1
 	
 	    # Consulta de contas das fontes da prefeitura.
 	    # 
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
 	    # @option opts [string] :expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [array[FontesResponse]]
-	    def self.ptr_lkp_fonte_detalhada(access_token, client_id, offset, limit, opts = {})
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_fonte_detalhada" if access_token.nil?
+	    def self.ptr_lkp_fonte_detalhada(client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_fonte_detalhada" if client_id.nil?
@@ -694,6 +682,8 @@ module ImaApiV1
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
 	      query_params[:'expand'] = opts[:'expand'] if opts[:'expand']
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -705,7 +695,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -729,20 +718,18 @@ module ImaApiV1
 	    # Consulta de conta da fonte da prefeitura.
 	    # 
 	    # @param id Identificador do registro.
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
 	    # @option opts [string] :expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [FontesResponse]
-	    def self.ptr_lkp_fonte_detalhada2(id, access_token, client_id, offset, limit, opts = {})
+	    def self.ptr_lkp_fonte_detalhada2(id, client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'id' is set
 	      raise "Missing the required parameter 'id' when calling ptr_lkp_fonte_detalhada2" if id.nil?
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_fonte_detalhada2" if access_token.nil?
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_fonte_detalhada2" if client_id.nil?
@@ -762,6 +749,8 @@ module ImaApiV1
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
 	      query_params[:'expand'] = opts[:'expand'] if opts[:'expand']
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -773,7 +762,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -796,16 +784,14 @@ module ImaApiV1
 	
 	    # Consulta das receitas das fontes detalhadas da prefeitura.
 	    # 
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [array[FonteDetalhadaResponse]]
-	    def self.ptr_lkp_fonte(access_token, client_id, offset, limit, opts = {})
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_fonte" if access_token.nil?
+	    def self.ptr_lkp_fonte(client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_fonte" if client_id.nil?
@@ -824,6 +810,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -835,7 +823,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -859,19 +846,17 @@ module ImaApiV1
 	    # Consulta da receita da fonte detalhada da prefeitura.
 	    # 
 	    # @param id Identificador do registro.
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [FonteDetalhadaResponse]
-	    def self.ptr_lkp_fonte2(id, access_token, client_id, offset, limit, opts = {})
+	    def self.ptr_lkp_fonte2(id, client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'id' is set
 	      raise "Missing the required parameter 'id' when calling ptr_lkp_fonte2" if id.nil?
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_fonte2" if access_token.nil?
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_fonte2" if client_id.nil?
@@ -890,6 +875,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -901,7 +888,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -924,16 +910,14 @@ module ImaApiV1
 	
 	    # Consulta das funÃ§Ãµes da preifeitura.
 	    # 
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [array[FuncoesResponse]]
-	    def self.ptr_lkp_funcao(access_token, client_id, offset, limit, opts = {})
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_funcao" if access_token.nil?
+	    def self.ptr_lkp_funcao(client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_funcao" if client_id.nil?
@@ -952,6 +936,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -963,7 +949,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -987,19 +972,17 @@ module ImaApiV1
 	    # Consulta da funÃ§Ã£o da preifeitura.
 	    # 
 	    # @param id Identificador do registro.
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [FuncoesResponse]
-	    def self.ptr_lkp_funcao2(id, access_token, client_id, offset, limit, opts = {})
+	    def self.ptr_lkp_funcao2(id, client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'id' is set
 	      raise "Missing the required parameter 'id' when calling ptr_lkp_funcao2" if id.nil?
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_funcao2" if access_token.nil?
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_funcao2" if client_id.nil?
@@ -1018,6 +1001,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -1029,7 +1014,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -1052,17 +1036,15 @@ module ImaApiV1
 	
 	    # Consulta de contas das naturezas das receitas da prefeitura.
 	    # 
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
 	    # @option opts [string] :expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [array[naturezasResponse]]
-	    def self.ptr_lkp_subalinea_receita(access_token, client_id, offset, limit, opts = {})
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_subalinea_receita" if access_token.nil?
+	    def self.ptr_lkp_subalinea_receita(client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_subalinea_receita" if client_id.nil?
@@ -1082,6 +1064,8 @@ module ImaApiV1
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
 	      query_params[:'expand'] = opts[:'expand'] if opts[:'expand']
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -1093,7 +1077,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -1117,20 +1100,18 @@ module ImaApiV1
 	    # Consulta de conta da natureza da receita da prefeitura.
 	    # 
 	    # @param id Identificador do registro.
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
 	    # @option opts [string] :expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [naturezasResponse]
-	    def self.ptr_lkp_subalinea_receita2(id, access_token, client_id, offset, limit, opts = {})
+	    def self.ptr_lkp_subalinea_receita2(id, client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'id' is set
 	      raise "Missing the required parameter 'id' when calling ptr_lkp_subalinea_receita2" if id.nil?
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_subalinea_receita2" if access_token.nil?
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_subalinea_receita2" if client_id.nil?
@@ -1150,6 +1131,8 @@ module ImaApiV1
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
 	      query_params[:'expand'] = opts[:'expand'] if opts[:'expand']
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -1161,7 +1144,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -1184,16 +1166,14 @@ module ImaApiV1
 	
 	    # Consulta dos programas da preifeitura.
 	    # 
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [array[ProgramaResponse]]
-	    def self.ptr_lkp_programa(access_token, client_id, offset, limit, opts = {})
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_programa" if access_token.nil?
+	    def self.ptr_lkp_programa(client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_programa" if client_id.nil?
@@ -1212,6 +1192,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -1223,7 +1205,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -1247,19 +1228,17 @@ module ImaApiV1
 	    # Consulta do programa da preifeitura.
 	    # 
 	    # @param id Identificador do registro.
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [ProgramaResponse]
-	    def self.ptr_lkp_programa2(id, access_token, client_id, offset, limit, opts = {})
+	    def self.ptr_lkp_programa2(id, client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'id' is set
 	      raise "Missing the required parameter 'id' when calling ptr_lkp_programa2" if id.nil?
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_programa2" if access_token.nil?
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_programa2" if client_id.nil?
@@ -1278,6 +1257,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -1289,7 +1270,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -1312,17 +1292,15 @@ module ImaApiV1
 	
 	    # Consulta dos projetos e atividades da preifeitura.
 	    # 
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
 	    # @option opts [string] :expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [array[ProjetoAtividadeResponse]]
-	    def self.ptr_lkp_projeto_atividade(access_token, client_id, offset, limit, opts = {})
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_projeto_atividade" if access_token.nil?
+	    def self.ptr_lkp_projeto_atividade(client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_projeto_atividade" if client_id.nil?
@@ -1342,6 +1320,8 @@ module ImaApiV1
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
 	      query_params[:'expand'] = opts[:'expand'] if opts[:'expand']
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -1353,7 +1333,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -1377,20 +1356,18 @@ module ImaApiV1
 	    # Consulta do projeto e atividade da preifeitura.
 	    # 
 	    # @param id Identificador do registro.
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
 	    # @option opts [string] :expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [ProjetoAtividadeResponse]
-	    def self.ptr_lkp_projeto_atividade2(id, access_token, client_id, offset, limit, opts = {})
+	    def self.ptr_lkp_projeto_atividade2(id, client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'id' is set
 	      raise "Missing the required parameter 'id' when calling ptr_lkp_projeto_atividade2" if id.nil?
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_projeto_atividade2" if access_token.nil?
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_projeto_atividade2" if client_id.nil?
@@ -1410,6 +1387,8 @@ module ImaApiV1
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
 	      query_params[:'expand'] = opts[:'expand'] if opts[:'expand']
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -1421,7 +1400,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -1444,20 +1422,18 @@ module ImaApiV1
 	
 	    # Consulta das receitas da prefeitura.
 	    # 
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @option opts [string] :ano Ano de exercÃ­cio
 	    # @option opts [string] :mes MÃªs desejado
 	    # @option opts [string] :unidade Unidades, lista disponÃ­vel em GET /transparencia/unidades
 	    # @option opts [string] :natureza Natureza das receitas, lista disponÃ­vel em GET /transparencia/naturezas
 	    # @return [array[ReceitaResponse]]
-	    def self.ptr_ft_receita(access_token, client_id, offset, limit, opts = {})
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_ft_receita" if access_token.nil?
+	    def self.ptr_ft_receita(client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_ft_receita" if client_id.nil?
@@ -1476,6 +1452,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	      query_params[:'ano'] = opts[:'ano'] if opts[:'ano']
 	      query_params[:'mes'] = opts[:'mes'] if opts[:'mes']
 	      query_params[:'unidade'] = opts[:'unidade'] if opts[:'unidade']
@@ -1491,7 +1469,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -1515,23 +1492,21 @@ module ImaApiV1
 	    # Consulta da receita da prefeitura.
 	    # 
 	    # @param id Identificador do registro.
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @option opts [string] :ano Ano de exercÃ­cio, lista disponÃ­vel em GET /transparencia/anosExercicioReceita
 	    # @option opts [string] :mes MÃªs desejado
 	    # @option opts [string] :unidade Unidades, lista disponÃ­vel em GET /transparencia/unidades
 	    # @option opts [string] :natureza Natureza das receitas, lista disponÃ­vel em GET /transparencia/naturezas
 	    # @return [ReceitaResponse]
-	    def self.ptr_ft_receita2(id, access_token, client_id, offset, limit, opts = {})
+	    def self.ptr_ft_receita2(id, client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'id' is set
 	      raise "Missing the required parameter 'id' when calling ptr_ft_receita2" if id.nil?
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_ft_receita2" if access_token.nil?
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_ft_receita2" if client_id.nil?
@@ -1550,6 +1525,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	      query_params[:'ano'] = opts[:'ano'] if opts[:'ano']
 	      query_params[:'mes'] = opts[:'mes'] if opts[:'mes']
 	      query_params[:'unidade'] = opts[:'unidade'] if opts[:'unidade']
@@ -1565,7 +1542,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -1588,16 +1564,14 @@ module ImaApiV1
 	
 	    # Consulta dos sub-itens das contas.
 	    # 
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [array[subItensContasResponse]]
-	    def self.ptr_lkp_subitem_conta(access_token, client_id, offset, limit, opts = {})
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_subitem_conta" if access_token.nil?
+	    def self.ptr_lkp_subitem_conta(client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_subitem_conta" if client_id.nil?
@@ -1616,6 +1590,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -1627,7 +1603,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -1651,19 +1626,17 @@ module ImaApiV1
 	    # Consulta do sub-item das contas.
 	    # 
 	    # @param id Identificador do registro.
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [subItensContasResponse]
-	    def self.ptr_lkp_subitem_conta2(id, access_token, client_id, offset, limit, opts = {})
+	    def self.ptr_lkp_subitem_conta2(id, client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'id' is set
 	      raise "Missing the required parameter 'id' when calling ptr_lkp_subitem_conta2" if id.nil?
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_subitem_conta2" if access_token.nil?
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_subitem_conta2" if client_id.nil?
@@ -1682,6 +1655,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -1693,7 +1668,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -1716,16 +1690,14 @@ module ImaApiV1
 	
 	    # Consulta das sub-funÃ§Ãµes da preifeitura.
 	    # 
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [array[SubfuncoesResponse]]
-	    def self.ptr_lkp_subfuncao(access_token, client_id, offset, limit, opts = {})
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_subfuncao" if access_token.nil?
+	    def self.ptr_lkp_subfuncao(client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_subfuncao" if client_id.nil?
@@ -1744,6 +1716,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -1755,7 +1729,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -1779,19 +1752,17 @@ module ImaApiV1
 	    # Consulta da sub-funÃ§Ã£o da preifeitura.
 	    # 
 	    # @param id Identificador do registro.
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [SubfuncoesResponse]
-	    def self.ptr_lkp_subfuncao2(id, access_token, client_id, offset, limit, opts = {})
+	    def self.ptr_lkp_subfuncao2(id, client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'id' is set
 	      raise "Missing the required parameter 'id' when calling ptr_lkp_subfuncao2" if id.nil?
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_subfuncao2" if access_token.nil?
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_subfuncao2" if client_id.nil?
@@ -1810,6 +1781,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -1821,7 +1794,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -1844,16 +1816,14 @@ module ImaApiV1
 	
 	    # Consulta dos tipos de licitaÃ§Ãµes.
 	    # 
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [array[tipoLicitacoesResponse]]
-	    def self.ptr_lkp_tipo_licitacao(access_token, client_id, offset, limit, opts = {})
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_tipo_licitacao" if access_token.nil?
+	    def self.ptr_lkp_tipo_licitacao(client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_tipo_licitacao" if client_id.nil?
@@ -1872,6 +1842,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -1883,7 +1855,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -1907,19 +1878,17 @@ module ImaApiV1
 	    # Consulta do tipo de licitaÃ§Ã£o.
 	    # 
 	    # @param id Identificador do registro.
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [tipoLicitacoesResponse]
-	    def self.ptr_lkp_tipo_licitacao2(id, access_token, client_id, offset, limit, opts = {})
+	    def self.ptr_lkp_tipo_licitacao2(id, client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'id' is set
 	      raise "Missing the required parameter 'id' when calling ptr_lkp_tipo_licitacao2" if id.nil?
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_tipo_licitacao2" if access_token.nil?
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_tipo_licitacao2" if client_id.nil?
@@ -1938,6 +1907,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -1949,7 +1920,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -1972,16 +1942,14 @@ module ImaApiV1
 	
 	    # Consulta das unidades da preifeitura.
 	    # 
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [array[UnidadesResponse]]
-	    def self.ptr_lkp_unidade_orcamentaria(access_token, client_id, offset, limit, opts = {})
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_unidade_orcamentaria" if access_token.nil?
+	    def self.ptr_lkp_unidade_orcamentaria(client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_unidade_orcamentaria" if client_id.nil?
@@ -2000,6 +1968,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -2011,7 +1981,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -2035,19 +2004,17 @@ module ImaApiV1
 	    # Consulta da unidade da preifeitura.
 	    # 
 	    # @param id Identificador do registro.
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [UnidadesResponse]
-	    def self.ptr_lkp_unidade_orcamentaria2(id, access_token, client_id, offset, limit, opts = {})
+	    def self.ptr_lkp_unidade_orcamentaria2(id, client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'id' is set
 	      raise "Missing the required parameter 'id' when calling ptr_lkp_unidade_orcamentaria2" if id.nil?
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_unidade_orcamentaria2" if access_token.nil?
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_unidade_orcamentaria2" if client_id.nil?
@@ -2066,6 +2033,8 @@ module ImaApiV1
 	      query_params = {}
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -2077,7 +2046,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -2100,17 +2068,15 @@ module ImaApiV1
 	
 	    # Consulta de contas das unidades gestoras da prefeitura.
 	    # 
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
 	    # @option opts [string] :expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [array[UnidadeGestoraResponse]]
-	    def self.ptr_lkp_unidade_gestora(access_token, client_id, offset, limit, opts = {})
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_unidade_gestora" if access_token.nil?
+	    def self.ptr_lkp_unidade_gestora(client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_unidade_gestora" if client_id.nil?
@@ -2130,6 +2096,8 @@ module ImaApiV1
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
 	      query_params[:'expand'] = opts[:'expand'] if opts[:'expand']
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -2141,7 +2109,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
@@ -2165,20 +2132,18 @@ module ImaApiV1
 	    # Consulta de conta da unidade gestora da prefeitura.
 	    # 
 	    # @param id Identificador do registro.
-	    # @param access_token Access Token com as permissÃµes de acesso.
 	    # @param client_id Token disponibilizado na criaÃ§Ã£o da APP.
 	    # @param offset ParÃ¢metro utilizado para indicar a posiÃ§Ã£o do registro inicial que serÃ¡ trazido. A primeira posiÃ§Ã£o Ã© sempre zero (0).
 	    # @param limit ParÃ¢metro utilizado para indicar a quantidade de registros que deve ser trazido na consulta.
 	    # @param [Hash] opts the optional parameters
 	    # @option opts [string] :expand ParÃ¢metro utilizado para obter maiores detalhes sobre algum dos atributos do recurso. Podendo ser passados mÃºltiplos campos separados por vÃ­rgula
+	    # @option opts [array[string]] :fields ParÃ¢metro utilizado para pesquisar campos especÃ­ficos
+	    # @option opts [array[string]] :filters ParÃ¢metro utilizado para pesquisar valores de campos especÃ­ficos, por exemplo, para pesquisar um id de valor 123, passar o valor id:123
 	    # @return [UnidadeGestoraResponse]
-	    def self.ptr_lkp_unidade_gestora2(id, access_token, client_id, offset, limit, opts = {})
+	    def self.ptr_lkp_unidade_gestora2(id, client_id, offset, limit, opts = {})
 	      
 	      # verify the required parameter 'id' is set
 	      raise "Missing the required parameter 'id' when calling ptr_lkp_unidade_gestora2" if id.nil?
-	      
-	      # verify the required parameter 'access_token' is set
-	      raise "Missing the required parameter 'access_token' when calling ptr_lkp_unidade_gestora2" if access_token.nil?
 	      
 	      # verify the required parameter 'client_id' is set
 	      raise "Missing the required parameter 'client_id' when calling ptr_lkp_unidade_gestora2" if client_id.nil?
@@ -2198,6 +2163,8 @@ module ImaApiV1
 	      query_params[:'offset'] = offset
 	      query_params[:'limit'] = limit
 	      query_params[:'expand'] = opts[:'expand'] if opts[:'expand']
+	      query_params[:'fields'] = opts[:'fields'] if opts[:'fields']
+	      query_params[:'filters'] = opts[:'filters'] if opts[:'filters']
 	
 	      # header parameters
 	      header_params = {}
@@ -2209,7 +2176,6 @@ module ImaApiV1
 	      # HTTP header 'Content-Type'
 	      _header_content_type = []
 	      header_params['Content-Type'] = Client::Request.select_header_content_type(_header_content_type)
-	      header_params[:'access-token'] = access_token
 	      header_params[:'client_id'] = client_id
 	
 	      # form parameters
